@@ -1,0 +1,26 @@
+[package]
+name = "text-identifier"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "text_identifier"
+path = "src/lib.rs"
+crate-type = ["lib"]
+
+# condition compile: wasm & cli
+[features]
+default = ["cli"]
+cli = []
+# cli = ["comfy-table", "clap"]
+
+[[bin]]
+name = "text_identifier"
+path = "src/main.rs"
+required-features = ["cli"]
+
+
+[dependencies]
+comfy-table = "6.2.0"
